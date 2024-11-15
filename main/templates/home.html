@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to GPA Calculator</h1>
+{% if user.is_authenticated %}
+    <p><a href="{% url 'add_class' %}">Add a Class</a></p>
+    <p><a href="{% url 'view_gpa' %}">View GPA</a></p>
+    <p><a href="{% url 'grade_calculator' %}">Grade Calculator</a></p>
+{% else %}
+    <p>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'signup' %}">sign up</a>.</p>
+{% endif %}
+{% endblock %}

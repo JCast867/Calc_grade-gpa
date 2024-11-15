@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Your Classes</h2>
+<table border="1">
+    <tr>
+        <th>Class Name</th>
+        <th>Grade</th>
+        <th>GPA Points</th>
+        <th>Credits</th>
+        <th>Actions</th>
+    </tr>
+    {% for class in classes %}
+    <tr>
+        <td>{{ class.name }}</td>
+        <td>{{ class.grade }}</td>
+        <td>{{ class.gpa_points }}</td>
+        <td>{{ class.credits }}</td>
+        <td>
+            <a href="{% url 'delete_class' class_id=class.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<h3>Your GPA: {{ gpa }}</h3>
+<p><a href="{% url 'add_class' %}">Add a Class</a></p>
+{% endblock %}

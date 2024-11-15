@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Grade Calculator</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Calculate</button>
+</form>
+
+{% if calculated_grade %}
+    <h3>Calculated Grade: {{ calculated_grade }}%</h3>
+{% endif %}
+{% endblock %}
